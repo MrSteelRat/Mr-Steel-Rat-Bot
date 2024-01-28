@@ -1,0 +1,9 @@
+[submodule "deps/tgbot-cpp"]
+	path = deps/tgbot-cpp
+	url = https://github.com/reo7sp/tgbot-cpp
+[submodule "deps/boost"]
+	path = deps/boost
+	url = https://github.com/boostorg/boost.git
+[submodule "deps/vcpkg"]
+	path = deps/vcpkg
+	url = https://github.com/microsoft/vcpkg
