@@ -1,0 +1,1 @@
+#define TOKEN "Bot_Fathe_Get_Token"
