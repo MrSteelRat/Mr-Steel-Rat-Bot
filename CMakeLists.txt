@@ -8,6 +8,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 set(CMAKE_GENERATOR "Ninja" CACHE STRING "Ninja")
 set(Boost_USE_MULTITHREADED ON)
 
+set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time") 
+set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
+
 enable_testing()
 
 # Укажите пути к заголовочным файлам вашего проекта
