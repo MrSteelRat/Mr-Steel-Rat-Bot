@@ -3,15 +3,26 @@ cmake_minimum_required(VERSION 3.16)
 project(Sofi_Si_Body_Therapy)
 
 set(CMAKE_CXX_STANDARD 23)
+set(Boost_USE_MULTITHREADED ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 set(CMAKE_GENERATOR "Ninja" CACHE STRING "Ninja")
-set(Boost_USE_MULTITHREADED ON)
 
-set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time") 
-set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O0")  # Add -O0 optimization flag (No optimization)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O1")  # Add -O1 optimization flag (Optimize for speed)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2")  # Add -O2 optimization flag (More aggressive optimization)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O3")  # Add -O3 optimization flag (Even more aggressive optimization)
+
+# Add AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,undefined")
+
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time") 
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 
 enable_testing()
+
+# ключ GCC -ftime-report для вывода 
+add_compile_options(-ftime-report)
 
 # Укажите пути к заголовочным файлам вашего проекта
 include_directories(/usr/local/include)
@@ -23,6 +34,7 @@ set(CMAKE_PREFIX_PATH "/usr/local" ${CMAKE_PREFIX_PATH})
 
 find_package(Threads REQUIRED)
 find_package(OpenSSL REQUIRED)
+find_package(GTest)
 find_package(SQLite3)
 find_package(Boost COMPONENTS system REQUIRED)
 find_package(CURL)
@@ -52,7 +64,7 @@ target_link_libraries(telegram_bot PRIVATE /usr/local/lib/libTgBot.a Boost::syst
 target_link_libraries(telegram_bot PRIVATE stdc++)
 
 # Добавьте тесты с использованием Google Test
-#add_subdirectory(tests)
+#add_subdirectory(test)
 
 # Добавьте цель для тестирования
 #add_test(NAME my_tests COMMAND telegram_bot_tests)
