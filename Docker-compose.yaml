@@ -1,0 +1,15 @@
+
+version: '3.3'
+
+services:
+  mariadb:
+    container_name: site-mariadb
+    image: mariadb:${MARIADB_IMAGE_TAG}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ghost_production
+    restart: always
+    volumes:
+        - ${MYSQL_HOST_PATH}:/var/lib/mysql
