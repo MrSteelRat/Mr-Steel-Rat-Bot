@@ -99,5 +99,7 @@ void BaseCommandBot::baseCommands()
   catch (const TgBot::TgException& e)
   {
     std::cerr << "Error: " << e.what() << std::endl;
+  }    catch (...) {
+    std::cout << "error 2" << "\n";
   }
 }
