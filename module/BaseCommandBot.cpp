@@ -93,11 +93,11 @@ void BaseCommandBot::baseCommands()
       std::cout << "Long poll started" << std::endl;
       longPoll.start();
     }
-
-    longPoll.start();
   }
   catch (const TgBot::TgException& e)
   {
     std::cerr << "Error: " << e.what() << std::endl;
+  } catch (...) {
+    std::cout << "error 2" << "\n";
   }
 }
