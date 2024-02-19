@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Sofi_Si_Body_Therapy)
+project(MrSteelRat_bot)
 
 set(CMAKE_CXX_STANDARD 23)
 set(Boost_USE_MULTITHREADED ON)
@@ -14,15 +14,20 @@ set(CMAKE_GENERATOR "Ninja" CACHE STRING "Ninja")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O3")  # Add -O3 optimization flag (Even more aggressive optimization)
 
 # Add AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,undefined")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,undefined")
 
-#set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time") 
-#set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
+option(BUILD_SHARED_LIBS "Build tgbot-cpp shared/static library." ON)
 
-enable_testing()
+enable_testing(include(CTest))
 
 # ключ GCC -ftime-report для вывода 
 add_compile_options(-ftime-report)
+
+# убирает ошиибку имен Boost placehoolder
+add_compile_options(-Wno-deprecated-declarations)
+
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time") 
+#set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 
 # Укажите пути к заголовочным файлам вашего проекта
 include_directories(/usr/local/include)
