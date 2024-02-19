@@ -717,3 +717,4 @@ build
 .PVS-Studio/State/ReportState.json
 .PVS-Studio/State/WindowState.json
 .PVS-Studio/Temp/filtered_compile_commands.json
+module/token.h
