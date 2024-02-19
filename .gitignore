@@ -714,3 +714,6 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/pvs,c++,clion+all,vs,visualstudiocode,visualstudio
 build
 .vscode
+.PVS-Studio/State/ReportState.json
+.PVS-Studio/State/WindowState.json
+.PVS-Studio/Temp/filtered_compile_commands.json
