@@ -20,6 +20,10 @@ You can install dependencies on Debian-based distibutives with these commands:
 
 ```sh
 sudo apt-get install g++ make binutils cmake libboost-system-dev libssl-dev zlib1g-dev libcurl4-openssl-dev sqlite sqlite-dev 
+
+```
+
+```sh
 # Install docker for Ubuntu 22.04 add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -35,7 +39,6 @@ echo \
 sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
 ```
 
 ## Build from soucre CMake 
