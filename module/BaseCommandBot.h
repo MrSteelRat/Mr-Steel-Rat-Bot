@@ -7,8 +7,8 @@
 // Created by alex on 11/13/23.
 //
 
-#ifndef SOFI_SI_BODY_THERAPY_BASECOMMANDBOT_H
-#define SOFI_SI_BODY_THERAPY_BASECOMMANDBOT_H
+#ifndef BASECOMMANDBOT_H
+#define BASECOMMANDBOT_H
 
 #include <tgbot/tgbot.h>
 
@@ -31,4 +31,4 @@ class BaseCommandBot
   void createDatabase(int userId, const std::string& username);
 };
 
-#endif  // SOFI_SI_BODY_THERAPY_BASECOMMANDBOT_H
+#endif  // BASECOMMANDBOT_H
